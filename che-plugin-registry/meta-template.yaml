@@ -1,0 +1,8 @@
+version:
+type:                 # Che Editor | Che Plugin
+name:
+id:
+title:
+description:
+icon:
+url:                 # url where tar.gz with sources are located

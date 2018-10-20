@@ -1,0 +1,26 @@
+version:
+type:                 # Che Editor | Che Plugin
+name:
+id:
+title:
+description:
+icon:
+endpoints:
+ -  name:
+    public: true       # true | false
+    targetPort: 8888   # port int value, for example 80
+    attributes:
+      protocol: http   # http | ws | tcp
+      type: ide        # ide | ls
+containers:
+ - name:
+   image:
+   env:
+       - name:
+         value:
+   volumes:
+       - mountPath:
+         name:
+   ports:
+       - exposedPort:
+   memory-limit:       # "512M"
