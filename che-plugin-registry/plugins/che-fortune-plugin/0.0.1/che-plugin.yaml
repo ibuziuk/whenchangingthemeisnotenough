@@ -1,0 +1,11 @@
+id: che-fortune-plugin
+name: fortune
+containers:
+ - name: theia-fort-pl
+   image: demo/fortune
+   memory-limit: "700Mi"
+   volumes:
+       - mountPath: "/plugins"
+         name: plugins
+       - mountPath: "/projects"
+         name: projects

@@ -15,8 +15,9 @@ Steps:
 
 ### How to run custom registry
 
-- build custom registry `./build_local_version.sh`
-- add before starting Che `export PLUGIN_REGISTRY_IMAGE_TAG=local`. Then start Che with option `--no-pull` when starting Che
+- Build, pull and retag all needed images with `./prepareLocalEnv.sh`
+- add ocp to path
+- run OCP with Che deployed with 'run-ocp-with-che.sh'
 
 ### How to add plugin or editor to a local registry
 
@@ -28,9 +29,3 @@ Steps:
  - version
  - url
 - upload your meta.yaml to the registry: `oc cp ./my-cool-plugin/ $(oc get pods --selector="deploymentconfig=che-plugin-registry" --no-headers=true -o custom-columns=:metadata.name):/var/www/html/plugins/`
-
-
-
-
-
-

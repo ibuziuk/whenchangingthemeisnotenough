@@ -1,0 +1,19 @@
+endpoints:
+ -  name: "hello-ls"
+    public: true
+    targetPort: 8080
+containers:
+ - name: che-hello
+   image: demo/che-hello
+   editor-commands:
+     - name: foo
+       working-dir: "$(project)"
+       command: ["uname", "-a"]
+   volumes:
+     - mountPath: "/projects"
+       name: projects
+   ports:
+     - exposedPort: 8080
+editors:
+   - id: org.eclipse.che.editor.theia
+     plugins: [theia-remote-service:1.0.0]

@@ -1,0 +1,4 @@
+plugins:
+  - id: theia-remote-service
+    version: 1.0.0 
+    location: /che_ui_service_plugin.theia

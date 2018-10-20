@@ -1,0 +1,4 @@
+plugins:
+  - id: theia-hello-world
+    version: 1.0.0 
+    location: /hello_world_plugin.theia
