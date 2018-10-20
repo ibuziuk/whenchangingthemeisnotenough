@@ -15,7 +15,8 @@ Steps:
 
 ### How to run custom registry
 
-- use option `` when starting Che
+- build custom registry `./build_local_version.sh`
+- add before starting Che `export PLUGIN_REGISTRY_IMAGE_TAG=local`. Then start Che with option `--no-pull` when starting Che
 
 ### How to add plugin or editor to a local registry
 

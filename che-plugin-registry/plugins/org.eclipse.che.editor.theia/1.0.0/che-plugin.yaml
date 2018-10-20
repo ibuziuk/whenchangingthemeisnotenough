@@ -1,0 +1,41 @@
+version: 1.0.0
+type: Che Editor
+name: theia-ide
+id: org.eclipse.che.editor.theia
+title: Eclipse Theia for Eclipse Che
+Description: Eclipse Theia
+Icon: https://pbs.twimg.com/profile_images/929088242456190976/xjkS2L-0_400x400.jpg
+endpoints:
+ -  name: "theia"
+    public: true
+    targetPort: 3000
+    attributes:
+      protocol: http
+      type: ide
+      secure: true
+      cookiesAuthEnabled: true
+ -  name: "theia-dev"
+    public: true
+    targetPort: 3030
+    attributes:
+      protocol: http
+      type: ide-dev
+containers:
+ - name: theia-ide
+   image: eclipse/che-theia:plugin-id-nightly
+   env:
+       - name: THEIA_PLUGINS
+         value: local-dir:///plugins
+       - name: HOSTED_PLUGIN_HOSTNAME
+         value: 0.0.0.0
+       - name: THEIA_DEFAULT_PLUGINS
+         value: ""
+   volumes:
+       - mountPath: "/plugins"
+         name: plugins
+       - mountPath: "/projects"
+         name: projects
+   ports:
+       - exposedPort: 3000
+       - exposedPort: 3030
+   memory-limit: "2048M"
