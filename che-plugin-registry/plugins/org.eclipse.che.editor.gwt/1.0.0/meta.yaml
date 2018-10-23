@@ -1,0 +1,7 @@
+id: org.eclipse.che.editor.gwt
+version: 1.0.0
+type: Che Editor
+name: gwt-ide
+title: Eclipse GWT IDE  for Eclipse Che
+description: Eclipse GWT IDE
+url: http://che-plugin-registry-eclipse-che.172.17.0.1.nip.io/plugins/org.eclipse.che.editor.gwt/1.0.0/che-plugin-yaml.tar.gz

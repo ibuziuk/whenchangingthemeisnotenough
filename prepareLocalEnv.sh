@@ -19,6 +19,9 @@ docker tag wsskeleton/fortune demo/fortune
 docker pull eclipse/che-plugin-broker:v0.2.0
 docker pull wsskeleton/che-plugin-broker:theia-broker
 
+docker pull sleshchenko/che-editor-gwt-ide:demo
+docker tag sleshchenko/che-editor-gwt-ide:demo demo/che-editor-gwt-ide
+
 docker build -t demo/che-plugin-registry che-plugin-registry/.
 
 echo "Copying publish script to your path!!!!"
