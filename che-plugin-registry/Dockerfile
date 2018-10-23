@@ -9,3 +9,5 @@ RUN mkdir /var/www/html/plugins
 COPY /plugins /var/www/html/plugins
 COPY index.sh .htaccess  README.md /var/www/html/
 RUN cd /var/www/html/ && ./index.sh > plugins/index.json && rm index.sh
+USER 0
+RUN chmod -R g+rwX /var/www/html/plugins
