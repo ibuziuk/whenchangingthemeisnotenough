@@ -1,10 +1,3 @@
-version:
-type:                 # Che Editor | Che Plugin
-name:
-id:
-title:
-description:
-icon:
 endpoints:
  -  name:
     public: true       # true | false

@@ -1,5 +1,5 @@
 docker pull sleshchenko/s2i-minimal-notebook:demo
-docker tag sleshchenko/s2i-minimal-notebook:demo demo/s2i-minimal-notebook
+docker tag sleshchenko/s2i-minimal-notebook:demo demo/s2i-jupyter
 
 docker pull sleshchenko/che-server:demo
 docker tag sleshchenko/che-server:demo demo/che-server
@@ -31,4 +31,16 @@ if [ ! -f /usr/bin/publish-che-plugin ]; then
   echo "Please type sudo credentials if needed"
 
   sudo ln -s $CURRENT_DIR/publish.sh /usr/bin/publish-che-plugin
+fi
+
+CURRENT_DIR=$(pwd)
+sed -i -e "s|\[\[REPO_DIR\]\]|${CURRENT_DIR}|g" get-editor-template.sh
+
+if [ ! -f /usr/bin/get-editor-template ]; then
+  CURRENT_DIR=$(pwd)
+
+  echo "Copying get-editor-template script to your path!!!!"
+  echo "Please type sudo credentials if needed"
+
+  sudo ln -s $CURRENT_DIR/get-editor-template.sh /usr/bin/get-editor-template
 fi

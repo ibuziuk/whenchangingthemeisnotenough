@@ -5,7 +5,6 @@ PLUGIN_META=$CURRENT_DIR/$1
 PLUGIN_YAML=$CURRENT_DIR/$2
 
 tar -czvf che-plugin-yaml.tar.gz $2 > /dev/null
-
 PLUGIN_BINARY=che-plugin-yaml.tar.gz
 
 PLUGIN_ID=$(yq r ${PLUGIN_META} id)
