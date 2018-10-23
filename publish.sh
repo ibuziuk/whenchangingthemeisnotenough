@@ -11,6 +11,8 @@ PLUGIN_BINARY=che-plugin-yaml.tar.gz
 PLUGIN_ID=$(yq r ${PLUGIN_META} id)
 PLUGIN_VERSION=$(yq r ${PLUGIN_META} version)
 PLUGIN_DESCRIPTION=$(yq r ${PLUGIN_META} description)
+PLUGIN_TYPE=$(yq r ${PLUGIN_META} type)
+PLUGIN_NAME=$(yq r ${PLUGIN_META} name)
 
 # Start registry if not exist
 REGISTRY=$(oc get svc --field-selector='metadata.name=che-plugin-registry' 2>&1)
@@ -49,7 +51,7 @@ rm -rf /tmp/temp-che-plugin-registry
 mkdir /tmp/temp-che-plugin-registry
 oc cp $POD_NAME:/var/www/html/plugins/index.json /tmp/temp-che-plugin-registry/index.json
 
-JSON="{\"id\": \"${PLUGIN_ID}\", \"version\": \"${PLUGIN_VERSION}\", \"description\": \"${PLUGIN_DESCRIPTION}\"}"
+JSON="{\"id\": \"${PLUGIN_ID}\", \"name\":\"$PLUGIN_NAME\", \"version\": \"${PLUGIN_VERSION}\", \"description\": \"${PLUGIN_DESCRIPTION}\", \"type\": \"${PLUGIN_TYPE}\", \"links\": {\"self\":\"/plugins/$PLUGIN_ID/$PLUGIN_VERSION/meta.yaml\"}}"
 
 jq -e ".[.| length] |= . + ${JSON}" /tmp/temp-che-plugin-registry/index.json > /tmp/temp-che-plugin-registry/new.json
 
