@@ -20,3 +20,8 @@ docker pull eclipse/che-plugin-broker:v0.2.0
 docker pull wsskeleton/che-plugin-broker:theia-broker
 
 docker build -t demo/che-plugin-registry che-plugin-registry/.
+
+echo "Copying publish script to your path!!!!"
+echo "Please type sudo credentials if needed"
+CURRENT_DIR=$(pwd)
+sudo ln -s $CURRENT_DIR/publish.sh /usr/bin/publish-che-plugin
