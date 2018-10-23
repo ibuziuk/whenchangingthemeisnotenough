@@ -24,7 +24,11 @@ docker tag sleshchenko/che-editor-gwt-ide:demo demo/che-editor-gwt-ide
 
 docker build -t demo/che-plugin-registry che-plugin-registry/.
 
-echo "Copying publish script to your path!!!!"
-echo "Please type sudo credentials if needed"
-CURRENT_DIR=$(pwd)
-sudo ln -s $CURRENT_DIR/publish.sh /usr/bin/publish-che-plugin
+if [ ! -f /usr/bin/publish-che-plugin ]; then
+  CURRENT_DIR=$(pwd)
+
+  echo "Copying publish script to your path!!!!"
+  echo "Please type sudo credentials if needed"
+
+  sudo ln -s $CURRENT_DIR/publish.sh /usr/bin/publish-che-plugin
+fi
