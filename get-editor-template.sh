@@ -1,4 +1,4 @@
-REPO_DIR=/home/serg/projects/whenchangingthemeisnotenough
+REPO_DIR=[[REPO_DIR]]
 CURRENT_DIR=$(pwd)
 
 cp $REPO_DIR/che-plugin-registry/che-plugin-template.yaml $CURRENT_DIR/che-plugin.yaml
